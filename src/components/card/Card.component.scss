@@ -1,0 +1,87 @@
+.card-component {
+    display: flex;
+    .card-content {
+        width: 400px;
+        height: 500px;
+        // box-shadow: 2px 4px 12px #00000014;
+        // position: relative;
+        // overflow: hidden;
+        // border-radius: 18px;
+        // margin: 16px 8px;
+        // flex: 0 0 auto; // Ensures each card takes only its necessary space
+        // scroll-snap-align: start; // Snap alignment for the cards
+        // transition: all 0.3s ease-in-out; // Smooth transform transition
+        // cursor: pointer;
+
+        .card-info-and-img {
+            width: 100%;
+            height: 100%;
+            box-shadow: 2px 4px 12px #00000014;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            margin: 16px 8px;
+            flex: 0 0 auto; // Ensures each card takes only its necessary space
+            scroll-snap-align: start; // Snap alignment for the cards
+            transition: all 0.3s ease-in-out; // Smooth transform transition
+            cursor: pointer;
+            figure {
+                // overflow: hidden;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+
+                img {
+                    display: block;
+                    height: 100%;
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+
+            .info {
+                position: absolute;
+                z-index: 1;
+                padding: 30px;
+                top: 0;
+                left: 0;
+                right: 0;
+
+                .header,
+                .desc {
+                    color: #1d1d1f;
+                }
+
+                .eyebrow {
+                    color: #6e6e73;
+                    font-size: 12px;
+                    font-weight: 600;
+                    margin: 0;
+                    margin-bottom: 8px;
+                }
+
+                .header {
+                    // color: #fff;
+                    font-size: 28px;
+                    font-weight: 600;
+                    line-height: 34px;
+                }
+
+                .desc {
+                    font-size: 17px;
+                    font-weight: 400;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    &.dark-bg {
+        .card-content .card-info-and-img .info {
+            .eyebrow,
+            .header,
+            .desc {
+                color: #fff;
+            }
+        }
+    }
+}

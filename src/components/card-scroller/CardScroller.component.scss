@@ -1,0 +1,94 @@
+$scrollBtnSize: 52px;
+
+.card-scroller-component {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    transition: all 0.3s ease;
+    // padding: 16px;
+
+    .card-scroller {
+        display: flex;
+        overflow-x: auto;
+        column-gap: 16px;
+        padding-bottom: 20px;
+        scroll-behavior: smooth; /* Enable smooth scrolling behavior */
+        transition: transform 0.3s ease; /* Apply smooth transition effect */
+
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; // Ensures smooth scrolling on iOS
+        /* Customize scrollbar appearance for WebKit browsers */
+        scrollbar-width: none; /* Hide scrollbar in Firefox */
+        -ms-overflow-style: none; /* Hide scrollbar in Edge */
+        &::-webkit-scrollbar {
+            display: none; /* Hide scrollbar in Chrome, Safari, and Opera */
+        }
+
+        .card-component {
+            flex: 0 0 auto;
+            // overflow: hidden;
+            scroll-snap-align: start;
+
+            .card-content {
+                cursor: pointer;
+                transform: translateX(calc(1 * 140px));
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    // transform: scale(1.01);
+                    box-shadow: 2px 4px 16px #00000029;
+                    // transform: scale3d(1.01, 1.01, 1.01);
+                    // transform: translateX(calc(1 * 140px));
+                    .card-info-and-img {
+                        transform: scale3d(1.01, 1.01, 1.01);
+                    }
+                }
+            }
+            &:last-child {
+                padding-inline-end: 140px;
+            }
+        }
+    }
+
+    .scroll-btn {
+        padding: 0;
+        margin: 0;
+        border-radius: 50%;
+        border: none;
+        width: $scrollBtnSize;
+        height: $scrollBtnSize;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 4px 12px #00000014;
+        // background: rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        position: absolute;
+        top: calc(50% - ($scrollBtnSize / 2));
+        z-index: 2;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        span {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        &.left {
+            left: 0;
+        }
+        &.right {
+            right: 0;
+        }
+    }
+    &:hover {
+        .scroll-btn {
+            opacity: 0.4;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
