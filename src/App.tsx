@@ -7,24 +7,15 @@ import SupportPage from './pages/support/SupportPage';
 import NoPage from './pages/nopage/NoPage';
 import HeaderComponent from './components/header/Header.component';
 import FooterComponent from './components/footer/Footer.component';
+import AppRoutes from './routes/AppRoutes';
 
-const App: React.FC = () => {
+interface IProps {
+    appConfig?: any;
+    userConfig?: any;
+}
+const App: React.FC<IProps> = ({ appConfig, userConfig }) => {
     return (
-        <section className="app">
-            <HeaderComponent />
-            <section className="main">
-                <BrowserRouter>
-                    <Routes>
-                        <Route index element={<StorePage />}></Route>
-                        <Route path="store" element={<StorePage />}></Route>
-                        <Route path="support" element={<SupportPage />}></Route>
-                        <Route path="*" element={<NoPage />} />
-                        {/* <Route path="/" element={<LayoutPage />}></Route> */}
-                    </Routes>
-                </BrowserRouter>
-            </section>
-            <FooterComponent />
-        </section>
+        <AppRoutes />
     );
 };
 

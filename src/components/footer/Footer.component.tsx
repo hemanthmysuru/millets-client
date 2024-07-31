@@ -7,7 +7,7 @@ const FooterComponent: React.FC = () => {
             <div className="footer-content">
                 <section className="legal-content">
                     {FooterLegalContent.map((section, i) => (
-                        <div className="container">
+                        <div key={i} className="container">
                             <header>{section.header}</header>
                             <p>{section.content}</p>
                         </div>
